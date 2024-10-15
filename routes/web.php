@@ -23,4 +23,4 @@ Route::post('/index', [PersonController::class, 'store'])->name('person.store');
 
 Route::get('/index/{user}/edit', [PersonController::class, 'edit'])->name('person.edit');
 
-Route::put('/index/{user}/update', [PersonController::class, 'update'])->name('person.update');
+Route::delete('/index/{user}/delete', [PersonController::class, 'delete'])->name('person.delete');

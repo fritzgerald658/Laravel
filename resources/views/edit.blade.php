@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Edit User</h1>
+    <div>
+        @if(session()->has('success'))
+            <p>{{session('success')}}</p>
+        @endif
+    </div>
     @if($errors->any())
         <ul>
             @foreach ($errors->all() as $error)

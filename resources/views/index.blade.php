@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Users DATA</h1>
+    <div>
+        @if(session()->has('success'))
+            <p>{{session('success')}}</p>
+        @endif
+    </div>
     <table border="1">
         <thead>
             <th>ID</th>
@@ -15,6 +20,7 @@
             <th>Last Name</th>
             <th>Email Address</th>
             <th>Age</th>
+            <th></th>
             <th></th>
         </thead>
         <tbody>
@@ -27,6 +33,13 @@
                     <td>{{$user->age}}</td>
                     <td>
                         <a href="{{route('person.edit', ['user' => $user])}}">Edit</a>
+                    </td>
+                    <td>
+                        <form method="POST" action="{{route('person.delete', ['user' => $user])}}">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete">
+                        </form>
                     </td>
                 </tr>                
             @endforeach
